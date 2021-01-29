@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StretchTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="z75-uH-TmI">
+                                <rect key="frame" x="8.5" y="267.5" width="397.5" height="361"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:12:12am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFw-su-V1b">
+                                        <rect key="frame" x="0.0" y="0.0" width="397.5" height="70"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-iB-kRu">
+                                        <rect key="frame" x="0.0" y="70" width="397.5" height="128"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efF-Di-f14">
+                                                <rect key="frame" x="102" y="0.0" width="193.5" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-GV-rQ9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48.5" height="128"/>
+                                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="80"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gux-X5-ulj">
+                                                        <rect key="frame" x="48.5" y="0.0" width="48.5" height="128"/>
+                                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="80"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzg-hv-ZNW">
+                                                        <rect key="frame" x="97" y="0.0" width="96.5" height="128"/>
+                                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="80"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="efF-Di-f14" secondAttribute="bottom" id="7DJ-Ms-Xch"/>
+                                            <constraint firstItem="efF-Di-f14" firstAttribute="centerX" secondItem="lNr-iB-kRu" secondAttribute="centerX" id="OHE-IX-e4R"/>
+                                            <constraint firstItem="efF-Di-f14" firstAttribute="top" secondItem="lNr-iB-kRu" secondAttribute="top" id="PVu-Dv-egt"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyq-Ou-XCo">
+                                        <rect key="frame" x="0.0" y="198" width="397.5" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfy-wA-aGq">
+                                                <rect key="frame" x="158.5" y="8" width="80" height="38"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="TcW-m5-6jQ"/>
+                                                </constraints>
+                                                <state key="normal" title="Pause">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U92-fV-KfI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="sfy-wA-aGq" firstAttribute="centerX" secondItem="iyq-Ou-XCo" secondAttribute="centerX" id="GQ2-2R-c89"/>
+                                            <constraint firstItem="sfy-wA-aGq" firstAttribute="top" secondItem="iyq-Ou-XCo" secondAttribute="top" constant="8" id="ZdY-R2-3Je"/>
+                                            <constraint firstAttribute="bottom" secondItem="sfy-wA-aGq" secondAttribute="bottom" constant="8" id="xQE-cs-oZj"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lm7-mi-C3R">
+                                        <rect key="frame" x="0.0" y="252" width="397.5" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEQ-H5-SmH">
+                                                <rect key="frame" x="158.5" y="16" width="80" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="hDr-xp-BCU"/>
+                                                </constraints>
+                                                <state key="normal" title="Reset">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dff-yB-j4y"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="tEQ-H5-SmH" secondAttribute="bottom" constant="8" id="7eS-Nh-Rsl"/>
+                                            <constraint firstItem="tEQ-H5-SmH" firstAttribute="centerX" secondItem="lm7-mi-C3R" secondAttribute="centerX" id="JTa-iE-qay"/>
+                                            <constraint firstItem="tEQ-H5-SmH" firstAttribute="top" secondItem="lm7-mi-C3R" secondAttribute="top" constant="16" id="vxw-mH-7eG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-tw-rxa">
+                                        <rect key="frame" x="0.0" y="306" width="397.5" height="55"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5pN-yD-yh5">
+                                                <rect key="frame" x="124" y="16" width="149" height="32"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <segments>
+                                                    <segment title="Standing"/>
+                                                    <segment title="Stretch"/>
+                                                </segments>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="segmentSelectionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nEg-2C-DgU"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="5pN-yD-yh5" firstAttribute="top" secondItem="x9c-tw-rxa" secondAttribute="top" constant="16" id="4c4-yn-gDO"/>
+                                            <constraint firstAttribute="bottom" secondItem="5pN-yD-yh5" secondAttribute="bottom" constant="8" id="eea-9P-pJ6"/>
+                                            <constraint firstItem="5pN-yD-yh5" firstAttribute="centerX" secondItem="x9c-tw-rxa" secondAttribute="centerX" id="qiQ-dZ-IoV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z75-uH-TmI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DYT-a9-7u3"/>
+                            <constraint firstItem="z75-uH-TmI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VNM-DY-64B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pauseButton" destination="sfy-wA-aGq" id="741-7m-xEr"/>
+                        <outlet property="segmentControl" destination="5pN-yD-yh5" id="dGw-xM-Ern"/>
+                        <outlet property="setBetweenLabel" destination="gux-X5-ulj" id="IWi-KB-oo3"/>
+                        <outlet property="setLabel" destination="m1N-GV-rQ9" id="0cl-G6-8xb"/>
+                        <outlet property="setTimeLabel" destination="Jzg-hv-ZNW" id="jja-9X-5bH"/>
+                        <outlet property="timeLabel" destination="CFw-su-V1b" id="j6P-QA-NBe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+</document>
