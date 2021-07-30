@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzg-hv-ZNW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzg-hv-ZNW" userLabel="Set Count Label">
                                                         <rect key="frame" x="97" y="0.0" width="96.5" height="128"/>
                                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="80"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +86,7 @@
                                         <rect key="frame" x="0.0" y="252" width="397.5" height="54"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEQ-H5-SmH">
-                                                <rect key="frame" x="158.5" y="16" width="80" height="30"/>
+                                                <rect key="frame" x="158.5" y="8" width="80" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="hDr-xp-BCU"/>
@@ -103,7 +103,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="tEQ-H5-SmH" secondAttribute="bottom" constant="8" id="7eS-Nh-Rsl"/>
                                             <constraint firstItem="tEQ-H5-SmH" firstAttribute="centerX" secondItem="lm7-mi-C3R" secondAttribute="centerX" id="JTa-iE-qay"/>
-                                            <constraint firstItem="tEQ-H5-SmH" firstAttribute="top" secondItem="lm7-mi-C3R" secondAttribute="top" constant="16" id="vxw-mH-7eG"/>
+                                            <constraint firstItem="tEQ-H5-SmH" firstAttribute="top" secondItem="lm7-mi-C3R" secondAttribute="top" constant="8" id="vxw-mH-7eG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-tw-rxa">
@@ -140,11 +140,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countLabel" destination="Jzg-hv-ZNW" id="jja-9X-5bH"/>
                         <outlet property="pauseButton" destination="sfy-wA-aGq" id="741-7m-xEr"/>
                         <outlet property="segmentControl" destination="5pN-yD-yh5" id="dGw-xM-Ern"/>
                         <outlet property="setBetweenLabel" destination="gux-X5-ulj" id="IWi-KB-oo3"/>
                         <outlet property="setLabel" destination="m1N-GV-rQ9" id="0cl-G6-8xb"/>
-                        <outlet property="setTimeLabel" destination="Jzg-hv-ZNW" id="jja-9X-5bH"/>
                         <outlet property="timeLabel" destination="CFw-su-V1b" id="j6P-QA-NBe"/>
                     </connections>
                 </viewController>

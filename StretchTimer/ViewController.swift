@@ -13,12 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var setLabel: UILabel!
     @IBOutlet weak var setBetweenLabel: UILabel!
-    @IBOutlet weak var setTimeLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var pauseButton: UIButton!
     
     var calendar: Calendar = Calendar.current
-    var numSetOrMin = 0
     var timeStarted: Date?
     let workSystemSoundID: SystemSoundID = 1022
     let restSystemSoundID: SystemSoundID = 1016
@@ -26,6 +25,8 @@ class ViewController: UIViewController {
     var timer: Timer?
     var timePaused: Date?
     var isPaused = false
+    
+    // ui methods
     
     @IBAction func segmentSelectionChanged(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex {
@@ -42,22 +43,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pauseButtonPressed(_ sender: Any) {
-        if isPaused {
+        isPaused = !isPaused
+        if !isPaused {
+            // resume is pressed.
             timeStarted?.addTimeInterval(Date().timeIntervalSince(timePaused!))
             pauseButton.setTitle("Pause", for: .normal)
+            executeEverySecond()
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(executeEverySecond), userInfo: nil, repeats: true)
         } else {
+            // pause is pressed.
             pauseButton.setTitle("Resume", for: .normal)
             timer?.invalidate()
             timer = nil
             timePaused = Date()
         }
-        isPaused = !isPaused
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
         initialSetup()
     }
+    
+    // other methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,23 +74,18 @@ class ViewController: UIViewController {
     }
     
     func initialSetup() {
-        showCurrentTime()
-        
         if isStandingMode {
-            numSetOrMin = 0
             setBetweenLabel.text = ":"
         } else {
-            numSetOrMin = 1
             setBetweenLabel.text = "-"
         }
-        timeStarted = Date().addingTimeInterval(1.0)
 
-        setLabel.text = String(numSetOrMin)
-        setTimeLabel.text = "0"
-        
-        AudioServicesPlaySystemSound(workSystemSoundID)
+        timeStarted = Date()
+        executeEverySecond()
 
-        if !isPaused {
+        if isPaused {
+            timePaused = Date()
+        } else {
             timer?.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(executeEverySecond), userInfo: nil, repeats: true)
         }
@@ -93,7 +94,7 @@ class ViewController: UIViewController {
     @objc
     func executeEverySecond() {
         showCurrentTime()
-        showSet()
+        showSetAndCount()
     }
     
     func showCurrentTime() {
@@ -109,42 +110,36 @@ class ViewController: UIViewController {
         timeLabel.text = "\(getTwoDigit(hour)):\(getTwoDigit(min)):\(getTwoDigit(second))\(isAM ? "am" : "pm")"
     }
     
-    func showSet() {
-        var numSetSeconds = Int(Date().timeIntervalSince(timeStarted!))
+    func showSetAndCount() {
+        let totalSeconds = Int(Date().timeIntervalSince(timeStarted!))
         if isStandingMode {
-            numSetSeconds += 1
-            if numSetSeconds == 1200 {
-                setLabel.textColor = .green
-                setBetweenLabel.textColor = .green
-                setTimeLabel.textColor = .green
-                AudioServicesPlaySystemSound(restSystemSoundID)
-            } else if numSetSeconds == 3600 {
-                numSetSeconds = 0
+            if totalSeconds % 3600 == 0 {
                 setLabel.textColor = .white
                 setBetweenLabel.textColor = .white
-                setTimeLabel.textColor = .white
-                AudioServicesPlaySystemSound(workSystemSoundID)
-            }
-            setLabel.text = String(numSetSeconds / 60)
-            setTimeLabel.text = String(numSetSeconds % 60)
-        } else {
-            numSetSeconds += 1
-            if numSetSeconds > 60 {
-                numSetSeconds = 0
-                setTimeLabel.textColor = .white
-
-                numSetOrMin += 1
-                setLabel.text = String(numSetOrMin)
-                
-            } else if numSetSeconds == 30 {
+                countLabel.textColor = .white
+                if !isPaused {
+                    AudioServicesPlaySystemSound(workSystemSoundID)
+                }
+            } else if totalSeconds % 1200 == 0 {
+                setLabel.textColor = .green
+                setBetweenLabel.textColor = .green
+                countLabel.textColor = .green
                 AudioServicesPlaySystemSound(restSystemSoundID)
-            } else if numSetSeconds == 31 {
-                setTimeLabel.textColor = .green
-            } else if numSetSeconds == 60 {
-                AudioServicesPlaySystemSound(workSystemSoundID)
             }
-            setTimeLabel.text = String(numSetSeconds)
+        } else {
+            if totalSeconds % 60 == 0 {
+                countLabel.textColor = .white
+                if !isPaused {
+                AudioServicesPlaySystemSound(workSystemSoundID)
+                }
+                
+            } else if totalSeconds % 60 == 30 {
+                AudioServicesPlaySystemSound(restSystemSoundID)
+                countLabel.textColor = .green
+            }
         }
+        setLabel.text = String(totalSeconds / 60)
+        countLabel.text = String(totalSeconds % 60)
     }
     
     func getTwoDigit(_ num: Int) -> String {
