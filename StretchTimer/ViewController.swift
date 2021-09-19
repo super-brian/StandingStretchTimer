@@ -16,11 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var pauseButton: UIButton!
-    
-    var calendar: Calendar = Calendar.current
-    var timeStarted: Date?
+
     let workSystemSoundID: SystemSoundID = 1022
     let restSystemSoundID: SystemSoundID = 1016
+
+    private var avQueuePlayer: AVQueuePlayer?
+    var calendar: Calendar = Calendar.current
+    var timeStarted: Date?
     var isStandingMode = true
     var timer: Timer?
     var timePaused: Date?
@@ -67,6 +69,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        avQueuePlayer = AVQueuePlayer()
         
         UIApplication.shared.isIdleTimerDisabled = true
         
@@ -118,28 +122,37 @@ class ViewController: UIViewController {
                 setBetweenLabel.textColor = .white
                 countLabel.textColor = .white
                 if !isPaused {
-                    AudioServicesPlaySystemSound(workSystemSoundID)
+                    playSound(workSystemSoundID)
                 }
             } else if totalSeconds % 1200 == 0 {
                 setLabel.textColor = .green
                 setBetweenLabel.textColor = .green
                 countLabel.textColor = .green
-                AudioServicesPlaySystemSound(restSystemSoundID)
+                playSound(restSystemSoundID)
             }
         } else {
             if totalSeconds % 60 == 0 {
                 countLabel.textColor = .white
                 if !isPaused {
-                AudioServicesPlaySystemSound(workSystemSoundID)
+                    playSound(workSystemSoundID)
                 }
                 
             } else if totalSeconds % 60 == 30 {
-                AudioServicesPlaySystemSound(restSystemSoundID)
+                playSound(restSystemSoundID)
                 countLabel.textColor = .green
             }
         }
         setLabel.text = String(totalSeconds / 60)
         countLabel.text = String(totalSeconds % 60)
+    }
+    
+    func playSound(_ systemSoundID: SystemSoundID) {
+        AudioServicesPlaySystemSoundWithCompletion(
+            systemSoundID,
+            {() in AudioServicesPlaySystemSoundWithCompletion(
+                systemSoundID,
+                {() in AudioServicesPlaySystemSound(systemSoundID)})
+            });
     }
     
     func getTwoDigit(_ num: Int) -> String {

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="z75-uH-TmI">
-                                <rect key="frame" x="8.5" y="267.5" width="397.5" height="361"/>
+                                <rect key="frame" x="8.5" y="222" width="397.5" height="452"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:12:12am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFw-su-V1b">
                                         <rect key="frame" x="0.0" y="0.0" width="397.5" height="70"/>
@@ -59,13 +59,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyq-Ou-XCo">
-                                        <rect key="frame" x="0.0" y="198" width="397.5" height="54"/>
+                                        <rect key="frame" x="0.0" y="198" width="397.5" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfy-wA-aGq">
-                                                <rect key="frame" x="158.5" y="8" width="80" height="38"/>
+                                                <rect key="frame" x="158.5" y="8" width="80" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="TcW-m5-6jQ"/>
+                                                    <constraint firstAttribute="height" constant="50" id="yI0-TI-5xC"/>
                                                 </constraints>
                                                 <state key="normal" title="Pause">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,17 +80,18 @@
                                         <constraints>
                                             <constraint firstItem="sfy-wA-aGq" firstAttribute="centerX" secondItem="iyq-Ou-XCo" secondAttribute="centerX" id="GQ2-2R-c89"/>
                                             <constraint firstItem="sfy-wA-aGq" firstAttribute="top" secondItem="iyq-Ou-XCo" secondAttribute="top" constant="8" id="ZdY-R2-3Je"/>
-                                            <constraint firstAttribute="bottom" secondItem="sfy-wA-aGq" secondAttribute="bottom" constant="8" id="xQE-cs-oZj"/>
+                                            <constraint firstAttribute="bottom" secondItem="sfy-wA-aGq" secondAttribute="bottom" constant="32" id="xQE-cs-oZj"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lm7-mi-C3R">
-                                        <rect key="frame" x="0.0" y="252" width="397.5" height="54"/>
+                                        <rect key="frame" x="0.0" y="288" width="397.5" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEQ-H5-SmH">
-                                                <rect key="frame" x="158.5" y="8" width="80" height="38"/>
+                                                <rect key="frame" x="158.5" y="8" width="80" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="hDr-xp-BCU"/>
+                                                    <constraint firstAttribute="height" constant="50" id="s4p-xd-o6x"/>
                                                 </constraints>
                                                 <state key="normal" title="Reset">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,17 +103,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="tEQ-H5-SmH" secondAttribute="bottom" constant="8" id="7eS-Nh-Rsl"/>
+                                            <constraint firstAttribute="bottom" secondItem="tEQ-H5-SmH" secondAttribute="bottom" constant="32" id="7eS-Nh-Rsl"/>
                                             <constraint firstItem="tEQ-H5-SmH" firstAttribute="centerX" secondItem="lm7-mi-C3R" secondAttribute="centerX" id="JTa-iE-qay"/>
                                             <constraint firstItem="tEQ-H5-SmH" firstAttribute="top" secondItem="lm7-mi-C3R" secondAttribute="top" constant="8" id="vxw-mH-7eG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-tw-rxa">
-                                        <rect key="frame" x="0.0" y="306" width="397.5" height="55"/>
+                                        <rect key="frame" x="0.0" y="378" width="397.5" height="74"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5pN-yD-yh5">
-                                                <rect key="frame" x="124" y="16" width="149" height="32"/>
+                                                <rect key="frame" x="124" y="16" width="149" height="51"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="bzK-9v-XHe"/>
+                                                </constraints>
                                                 <segments>
                                                     <segment title="Standing"/>
                                                     <segment title="Stretch"/>
